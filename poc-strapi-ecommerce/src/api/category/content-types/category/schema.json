@@ -13,19 +13,25 @@
   "pluginOptions": {},
   "attributes": {
     "name": {
-      "type": "string"
+      "type": "string",
+      "required": true,
+      "minLength": 3,
+      "maxLength": 20
     },
-    "slug": {
-      "type": "uid"
+    "images": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
     },
-    "articles": {
+    "product": {
       "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::article.article",
+      "relation": "oneToOne",
+      "target": "api::product.product",
       "mappedBy": "category"
-    },
-    "description": {
-      "type": "text"
     }
   }
 }
