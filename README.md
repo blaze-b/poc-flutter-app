@@ -36,4 +36,7 @@
     # Add the get X dependency
     flutter pub add get
 
+    # Install snake navigation bar
+    flutter pub add flutter_snake_navigationbar
+
 ```
