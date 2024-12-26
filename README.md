@@ -26,11 +26,14 @@
 - Give the required name for the project.
 - [Full cli setup](https://docs.flutter.dev/get-started/install/windows)
 
-## Generic commands 
+## Generic commands
 
 ```sh
 
     # run as web app for testing
     flutter run -d web-server
+
+    # Add the get X dependency
+    flutter pub add get
 
 ```
