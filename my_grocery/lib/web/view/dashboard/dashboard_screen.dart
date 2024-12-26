@@ -15,7 +15,7 @@ class DashboardScreen extends StatelessWidget {
           child: IndexedStack(
             index: controller.tabIndex,
             children: [
-              HomeScreen(),
+              const HomeScreen(),
               Container(
                 color: Colors.red,
               ),
