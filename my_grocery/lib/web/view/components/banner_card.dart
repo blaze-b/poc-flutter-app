@@ -15,31 +15,61 @@ class BannerCard extends StatelessWidget {
       margin: const EdgeInsets.all(10),
       child: ClipRRect(
         borderRadius: const BorderRadius.all(Radius.circular(10)),
-        child: CachedNetworkImage(
-          imageUrl: fullImageUrl,
-          progressIndicatorBuilder: (context, url, downloadProgress) =>
-              Shimmer.fromColors(
-            highlightColor: Colors.white,
-            baseColor: Colors.grey.shade300,
-            child: Container(
-              margin: const EdgeInsets.all(10),
-              decoration: const BoxDecoration(
-                color: Colors.grey,
-                borderRadius: BorderRadius.all(Radius.circular(10)),
-              ),
-              child: ClipRRect(
-                borderRadius: const BorderRadius.all(Radius.circular(10)),
-                child: AspectRatio(
-                  aspectRatio: 16 / 9,
-                  child: Container(
-                    color: Colors.grey,
+        // child: CachedNetworkImage(
+        //   imageUrl: fullImageUrl,
+        //   progressIndicatorBuilder: (context, url, downloadProgress) =>
+        //       Shimmer.fromColors(
+        //     highlightColor: Colors.white,
+        //     baseColor: Colors.grey.shade300,
+        //     child: Container(
+        //       margin: const EdgeInsets.all(10),
+        //       decoration: const BoxDecoration(
+        //         color: Colors.grey,
+        //         borderRadius: BorderRadius.all(Radius.circular(10)),
+        //       ),
+        //       child: ClipRRect(
+        //         borderRadius: const BorderRadius.all(Radius.circular(10)),
+        //         child: AspectRatio(
+        //           aspectRatio: 16 / 9,
+        //           child: Container(
+        //             color: Colors.grey,
+        //           ),
+        //         ),
+        //       ),
+        //     ),
+        //   ),
+        //   fit: BoxFit.cover,
+        //   width: double.infinity,
+        // ),
+        child: Image.network(
+          imageUrl,
+          fit: BoxFit.cover,
+          width: double.infinity,
+          loadingBuilder: (BuildContext context, Widget child,
+              ImageChunkEvent? loadingProgress) {
+            print('Download progress: $loadingProgress');
+            return Shimmer.fromColors(
+              highlightColor: Colors.white,
+              baseColor: Colors.grey.shade300,
+              child: Container(
+                margin: const EdgeInsets.all(10),
+                decoration: const BoxDecoration(
+                  color: Colors.grey,
+                  borderRadius: BorderRadius.all(Radius.circular(10)),
+                ),
+                child: ClipRRect(
+                  borderRadius: const BorderRadius.all(Radius.circular(10)),
+                  child: AspectRatio(
+                    aspectRatio: 16 / 9,
+                    child: Container(
+                      color: Colors.grey,
+                    ),
                   ),
                 ),
               ),
-            ),
-          ),
-          fit: BoxFit.cover,
-          width: double.infinity,
+            );
+          },
+          errorBuilder: (context, error, stackTrace) => const Icon(Icons.error),
         ),
       ),
     );
