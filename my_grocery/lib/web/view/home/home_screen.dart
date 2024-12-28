@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:my_grocery/web/component/main_header.dart';
+import 'package:get/get.dart';
+import 'package:my_grocery/web/view/components/carousel_loading.dart';
+import 'package:my_grocery/web/view/components/main_header.dart';
+import 'package:my_grocery/web/controller/dashboard_controller.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -9,7 +12,20 @@ class HomeScreen extends StatelessWidget {
     return SafeArea(
       child: Column(
         children: [
-          MainHeader(),
+          const MainHeader(),
+          Obx(() {
+            bool isBannerLoaded = homeController.isBannerLoading.value;
+            print('Is loaded : $isBannerLoaded');
+            if (isBannerLoaded) {
+              print('Inside the carousel loading...');
+              return CarouselLoading();
+            } else {
+              print('Inside the no carousel loading...');
+              return const SizedBox(
+                width: 20,
+              ); // Or an empty SizedBox
+            }
+          }),
         ],
       ),
     );
