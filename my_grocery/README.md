@@ -1,6 +1,6 @@
 # My Grocery App
 
-A new Flutter project.
+A poc done for the my grocery app for learning and development.
 
 ## Getting Started
 
@@ -14,3 +14,21 @@ A few resources to get you started if this is your first Flutter project:
 For help getting started with Flutter development, view the
 [online documentation](https://docs.flutter.dev/), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
+
+## Commands for dependency installation
+
+```sh
+
+# Add the get X dependency
+flutter pub add get
+
+# Install snake navigation bar
+flutter pub add flutter_snake_navigationbar
+
+# Install badges
+flutter pub add badges
+
+# Install http connect
+flutter pub add http
+
+```
