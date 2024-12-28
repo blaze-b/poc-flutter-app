@@ -31,7 +31,7 @@
 ```sh
 
     # run as web app for testing
-    flutter run -d web-server
+    flutter run -d web-server --web-port=8000
 
     # Add the get X dependency
     flutter pub add get

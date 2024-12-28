@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:my_grocery/web/view/components/carousel_loading.dart';
+import 'package:my_grocery/web/view/components/carousel_slider_view.dart';
 import 'package:my_grocery/web/view/components/main_header.dart';
 import 'package:my_grocery/web/controller/dashboard_controller.dart';
 
@@ -14,16 +15,14 @@ class HomeScreen extends StatelessWidget {
         children: [
           const MainHeader(),
           Obx(() {
-            bool isBannerLoaded = homeController.isBannerLoading.value;
+            bool isBannerLoaded = homeController.bannerList.isNotEmpty;
             print('Is loaded : $isBannerLoaded');
             if (isBannerLoaded) {
-              print('Inside the carousel loading...');
-              return CarouselLoading();
+              print('Inside carousel slider...');
+              return CarouselSliderView(bannerList: homeController.bannerList);
             } else {
-              print('Inside the no carousel loading...');
-              return const SizedBox(
-                width: 20,
-              ); // Or an empty SizedBox
+              print('Inside carousel loading...');
+              return CarouselLoading();
             }
           }),
         ],

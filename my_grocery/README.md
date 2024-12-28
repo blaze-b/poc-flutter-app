@@ -25,10 +25,16 @@ flutter pub add get
 # Install snake navigation bar
 flutter pub add flutter_snake_navigationbar
 
-# Install badges
+# Install badges// for ekart badges
 flutter pub add badges
 
 # Install http connect
 flutter pub add http
+
+# Network connection
+flutter pub add cached_network_image
+
+# Carousel slider
+flutter pub add carousel_slider
 
 ```
