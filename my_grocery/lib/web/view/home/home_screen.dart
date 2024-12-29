@@ -16,7 +16,7 @@ class HomeScreen extends StatelessWidget {
           const MainHeader(),
           Obx(() {
             bool isBannerLoaded = homeController.bannerList.isNotEmpty;
-            print('Is loaded : $isBannerLoaded');
+            print('Is banner loaded : $isBannerLoaded');
             if (isBannerLoaded) {
               print('Inside carousel slider...');
               return CarouselSliderView(bannerList: homeController.bannerList);

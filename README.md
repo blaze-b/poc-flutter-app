@@ -33,10 +33,10 @@
     # run as web app for testing
     flutter run -d web-server --web-port=8000
 
+    # flutter run with the html imaging: https://docs.flutter.dev/platform-integration/web/renderers
+    flutter run -d web-server --web-port=8000 --web-renderer html
+
     # Add the get X dependency
     flutter pub add get
-
-    # Install snake navigation bar
-    flutter pub add flutter_snake_navigationbar
 
 ```
