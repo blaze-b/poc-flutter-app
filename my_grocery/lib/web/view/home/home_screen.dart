@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:my_grocery/web/view/components/carousel_loading.dart';
-import 'package:my_grocery/web/view/components/carousel_slider_view.dart';
-import 'package:my_grocery/web/view/components/main_header.dart';
+import 'package:my_grocery/web/view/home/components/carousel_loading.dart';
+import 'package:my_grocery/web/view/home/components/carousel_slider_view.dart';
+import 'package:my_grocery/web/view/home/components/main_header.dart';
 import 'package:my_grocery/web/controller/dashboard_controller.dart';
 
 class HomeScreen extends StatelessWidget {

@@ -15,7 +15,7 @@ class BannerCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     String fullImageUrl = '$baseUrl$imageUrl';
-    print('full image URL: $fullImageUrl'); // Print the combined URL
+    print('Full image URL: $fullImageUrl'); // Print the combined URL
     print('Default rendering : $defaultRenderer');
     if (!defaultRenderer) {
       return Container(
