@@ -17,6 +17,6 @@ class Category {
       Category(
         id: data['id'],
         name: data['category']['name'],
-        image: data['category']['images']['url'],
+        image: data['category']['image']['url'],
       );
 }

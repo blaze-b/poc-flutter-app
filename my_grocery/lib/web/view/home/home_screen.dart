@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:my_grocery/web/view/components/section_title.dart';
-import 'package:my_grocery/web/view/home/components/carousel/carousel_loading.dart';
-import 'package:my_grocery/web/view/home/components/carousel/carousel_slider_view.dart';
+import 'package:my_grocery/web/view/home/components/banner/carousel_loading.dart';
+import 'package:my_grocery/web/view/home/components/banner/carousel_slider_view.dart';
 import 'package:my_grocery/web/view/components/main_header.dart';
 import 'package:my_grocery/web/controller/dashboard_controller.dart';
 import 'package:my_grocery/web/view/home/components/popular_category/popular_category.dart';

@@ -1,17 +1,17 @@
 import 'package:http/http.dart' as http;
 import 'package:my_grocery/const.dart';
 
-class RemotePopularCategoryService {
+class RemotePopularProduct {
   var client = http.Client();
-  var remoteUrl = '$baseUrl/api/popular-categories';
+  var remoteUrl = '$baseUrl/api/popular-products';
 
-  Future<dynamic> getPaginated() async {
+  Future<dynamic> get() async {
     var headers = {
       'Authorization': 'Bearer $apiKey',
     };
     var response = await client.get(
       Uri.parse(
-          '$remoteUrl?populate=category.image&pagination[start]=0&pagination[limit]=5'),
+          '$remoteUrl?populate[0]=product.tags&populate[1]=product.images'),
       headers: headers,
     );
     print('Log reponse: $remoteUrl');
