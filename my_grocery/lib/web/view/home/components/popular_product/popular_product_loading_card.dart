@@ -42,6 +42,5 @@ class PopularProductLoadingCard extends StatelessWidget {
         ),
       ),
     );
-    ;
   }
 }
