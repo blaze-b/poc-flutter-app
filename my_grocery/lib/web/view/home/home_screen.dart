@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:my_grocery/web/view/home/components/carousel_loading.dart';
-import 'package:my_grocery/web/view/home/components/carousel_slider_view.dart';
-import 'package:my_grocery/web/view/home/components/main_header.dart';
+import 'package:my_grocery/web/view/home/components/carousel/carousel_loading.dart';
+import 'package:my_grocery/web/view/home/components/carousel/carousel_slider_view.dart';
+import 'package:my_grocery/web/view/components/main_header.dart';
 import 'package:my_grocery/web/controller/dashboard_controller.dart';
+import 'package:my_grocery/web/view/home/components/popular_category/popular_category_loading.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -23,6 +24,18 @@ class HomeScreen extends StatelessWidget {
             } else {
               print('Inside carousel loading...');
               return CarouselLoading();
+            }
+          }),
+          Obx(() {
+            bool isPopularCategoryLoaded =
+                homeController.popularCategoryList.isNotEmpty;
+            print('Is popular categories loaded : $isPopularCategoryLoaded');
+            if (isPopularCategoryLoaded) {
+              print('Inside popular category loader...');
+              return PopularCategoryLoading();
+            } else {
+              print('Inside default popular category loader...');
+              return PopularCategoryLoading();
             }
           }),
         ],
