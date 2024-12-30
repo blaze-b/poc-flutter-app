@@ -15,8 +15,8 @@ class BannerCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     String fullImageUrl = '$baseUrl$imageUrl';
-    print('Full image URL: $fullImageUrl'); // Print the combined URL
-    print('Default rendering : $defaultRenderer');
+    print('Banner image URL: $fullImageUrl'); // Print the combined URL
+    print('Default renderer enabled : $defaultRenderer');
     if (!defaultRenderer) {
       return Container(
         margin: const EdgeInsets.all(10),

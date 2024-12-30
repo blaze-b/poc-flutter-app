@@ -30,8 +30,6 @@ class HomeController extends GetxController {
         bannerList.addAll(adBannerListFromJson(result.body));
       }
     } finally {
-      print('Banner id: ${bannerList.first.id}');
-      print('Banner image: ${bannerList.first.image}');
       print('Banner list length: ${bannerList.length}');
       isBannerLoading(false);
     }
@@ -45,8 +43,6 @@ class HomeController extends GetxController {
         popularCategoryList.addAll(popularCategoryListFromJson(result.body));
       }
     } finally {
-      print('Popular category id: ${popularCategoryList.first.id}');
-      print('Popular category name: ${popularCategoryList.first.name}');
       print('Popular category list length: ${popularCategoryList.length}');
       isPopularCategoryLoading(false);
     }
