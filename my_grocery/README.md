@@ -37,4 +37,8 @@ flutter pub add cached_network_image
 # Carousel slider
 flutter pub add carousel_slider
 
+# Hive for the local db download
+flutter pub add hive_flutter
+flutter pub add hive
+
 ```
