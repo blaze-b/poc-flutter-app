@@ -10,8 +10,7 @@ class RemotePopularProduct {
       'Authorization': 'Bearer $apiKey',
     };
     var response = await client.get(
-      Uri.parse(
-          '$remoteUrl?populate[0]=product.tags&populate[1]=product.images'),
+      Uri.parse('$remoteUrl?populate=product.images'),
       headers: headers,
     );
     print('Log reponse: $remoteUrl');
