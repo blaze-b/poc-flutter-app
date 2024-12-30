@@ -2,6 +2,7 @@ import 'package:get/get.dart';
 import 'package:my_grocery/model/ad_banner.dart';
 import 'package:my_grocery/model/category.dart';
 import 'package:my_grocery/model/product.dart';
+import 'package:my_grocery/service/hive_ad_banner_service.dart';
 import 'package:my_grocery/service/remote_ad_banner_service.dart';
 import 'package:my_grocery/service/remote_popular_category_service.dart';
 import 'package:my_grocery/service/remote_popular_product.dart';
@@ -18,8 +19,14 @@ class HomeController extends GetxController {
   RxBool isPopularCategoryLoading = false.obs;
   RxBool isPopularProductLoading = false.obs;
 
+  // Hive
+  final HiveAdBannerService _hiveAdBannerService = HiveAdBannerService();
+
   @override
-  void onInit() {
+  void onInit() async {
+    // Init the hive
+    await _hiveAdBannerService.init();
+
     // Init all the methods
     getAdBanners();
     getPopularCategories();
@@ -30,9 +37,20 @@ class HomeController extends GetxController {
   void getAdBanners() async {
     try {
       isBannerLoading(true);
+
+      // assigning the local ad banners before call
+      if (_hiveAdBannerService.getAdBanners().isNotEmpty) {
+        bannerList.assignAll(_hiveAdBannerService.getAdBanners());
+      }
+
+      // Call api
       var result = await RemoteAdBannerService().get();
       if (result != null) {
+        // assign api result
         bannerList.addAll(adBannerListFromJson(result.body));
+        // save api result to local db
+        _hiveAdBannerService.assignAllAdBanners(
+            adBanners: adBannerListFromJson(result.body));
       }
     } finally {
       print('Banner list length: ${bannerList.length}');

@@ -40,3 +40,15 @@
     flutter pub add get
 
 ```
+
+## Hive db for running
+
+- Docs for reference `https://hivedb.dev/#/`
+
+```sh
+
+# Run build task
+
+flutter packages pub run build_runner build
+
+```

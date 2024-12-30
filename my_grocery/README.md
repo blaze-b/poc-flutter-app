@@ -41,4 +41,8 @@ flutter pub add carousel_slider
 flutter pub add hive_flutter
 flutter pub add hive
 
+# Add in the dev dependencies
+dart pub add hive_generator
+dart pub add dev:build_runner
+
 ```
