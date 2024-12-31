@@ -1,6 +1,8 @@
 import 'dart:convert';
-
+import 'package:hive/hive.dart';
 import 'package:my_grocery/model/tag.dart';
+
+part 'product.g.dart';
 
 List<Product> popularProductListFromJson(String val) => List<Product>.from(
       json
@@ -8,11 +10,17 @@ List<Product> popularProductListFromJson(String val) => List<Product>.from(
           .map((val) => Product.popularProductFromJson(val)),
     );
 
+@HiveType(typeId: 3)
 class Product {
+  @HiveField(0)
   final int id;
+  @HiveField(1)
   final String name;
+  @HiveField(2)
   final String description;
+  @HiveField(3)
   final List<String> images;
+  @HiveField(4)
   final List<Tag> tags;
 
   Product({

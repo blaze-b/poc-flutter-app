@@ -1,5 +1,7 @@
+import 'package:hive/hive.dart';
 import 'package:http/http.dart' as http;
 import 'package:my_grocery/const.dart';
+import 'package:my_grocery/model/category.dart';
 
 class RemotePopularCategoryService {
   var client = http.Client();
@@ -17,4 +19,20 @@ class RemotePopularCategoryService {
     print('Log reponse: $remoteUrl');
     return response;
   }
+}
+
+class LocalCategoryService {
+  late Box<Category> _popularCategoryBox;
+
+  Future<void> init() async {
+    _popularCategoryBox = await Hive.openBox<Category>('popularCategories');
+  }
+
+  Future<void> assignAllPopularCategories(
+      {required List<Category> popularCategories}) async {
+    await _popularCategoryBox.clear();
+    await _popularCategoryBox.addAll(popularCategories);
+  }
+
+  List<Category> getPopularCategories() => _popularCategoryBox.values.toList();
 }

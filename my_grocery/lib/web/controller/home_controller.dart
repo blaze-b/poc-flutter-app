@@ -2,7 +2,6 @@ import 'package:get/get.dart';
 import 'package:my_grocery/model/ad_banner.dart';
 import 'package:my_grocery/model/category.dart';
 import 'package:my_grocery/model/product.dart';
-import 'package:my_grocery/service/hive_ad_banner_service.dart';
 import 'package:my_grocery/service/remote_ad_banner_service.dart';
 import 'package:my_grocery/service/remote_popular_category_service.dart';
 import 'package:my_grocery/service/remote_popular_product.dart';
@@ -19,13 +18,17 @@ class HomeController extends GetxController {
   RxBool isPopularCategoryLoading = false.obs;
   RxBool isPopularProductLoading = false.obs;
 
-  // Hive
-  final HiveAdBannerService _hiveAdBannerService = HiveAdBannerService();
+  // Hive db storage
+  final LocalAdBannerService _localAdBannerService = LocalAdBannerService();
+  final LocalCategoryService _localCategoryService = LocalCategoryService();
+  final LocalProductService _localProductService = LocalProductService();
 
   @override
   void onInit() async {
     // Init the hive
-    await _hiveAdBannerService.init();
+    await _localAdBannerService.init();
+    await _localCategoryService.init();
+    await _localProductService.init();
 
     // Init all the methods
     getAdBanners();
@@ -39,8 +42,8 @@ class HomeController extends GetxController {
       isBannerLoading(true);
 
       // assigning the local ad banners before call
-      if (_hiveAdBannerService.getAdBanners().isNotEmpty) {
-        bannerList.assignAll(_hiveAdBannerService.getAdBanners());
+      if (_localAdBannerService.getAdBanners().isNotEmpty) {
+        bannerList.assignAll(_localAdBannerService.getAdBanners());
       }
 
       // Call api
@@ -49,7 +52,7 @@ class HomeController extends GetxController {
         // assign api result
         bannerList.addAll(adBannerListFromJson(result.body));
         // save api result to local db
-        _hiveAdBannerService.assignAllAdBanners(
+        _localAdBannerService.assignAllAdBanners(
             adBanners: adBannerListFromJson(result.body));
       }
     } finally {
@@ -61,9 +64,21 @@ class HomeController extends GetxController {
   void getPopularCategories() async {
     try {
       isPopularCategoryLoading(true);
+
+      // assigning the local popular categories before call
+      if (_localCategoryService.getPopularCategories().isNotEmpty) {
+        popularCategoryList
+            .assignAll(_localCategoryService.getPopularCategories());
+      }
+
       var result = await RemotePopularCategoryService().getPaginated();
       if (result != null) {
+        // assign api result
         popularCategoryList.addAll(popularCategoryListFromJson(result.body));
+
+        // save api result to local db
+        _localCategoryService.assignAllPopularCategories(
+            popularCategories: popularCategoryListFromJson(result.body));
       }
     } finally {
       print('Popular category list length: ${popularCategoryList.length}');
@@ -74,9 +89,20 @@ class HomeController extends GetxController {
   void getPopularProduct() async {
     try {
       isPopularProductLoading(true);
+
+      // assigning the local popular products before call
+      if (_localProductService.getPopularProducts().isNotEmpty) {
+        popularProductList.assignAll(_localProductService.getPopularProducts());
+      }
+
       var result = await RemotePopularProduct().get();
       if (result != null) {
+        // assign api result
         popularProductList.addAll(popularProductListFromJson(result.body));
+
+        // save api result to local db
+        _localProductService.assignAllPopularProducts(
+            popularProducts: popularProductListFromJson(result.body));
       }
     } finally {
       print('Popular product list length: ${popularCategoryList.length}');
