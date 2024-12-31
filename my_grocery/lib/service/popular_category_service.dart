@@ -21,6 +21,7 @@ class RemotePopularCategoryService {
   }
 }
 
+// Class created to do the local storage for the objects
 class LocalCategoryService {
   late Box<Category> _popularCategoryBox;
 

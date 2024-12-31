@@ -2,9 +2,9 @@ import 'package:get/get.dart';
 import 'package:my_grocery/model/ad_banner.dart';
 import 'package:my_grocery/model/category.dart';
 import 'package:my_grocery/model/product.dart';
-import 'package:my_grocery/service/remote_ad_banner_service.dart';
-import 'package:my_grocery/service/remote_popular_category_service.dart';
-import 'package:my_grocery/service/remote_popular_product.dart';
+import 'package:my_grocery/service/ad_banner_service.dart';
+import 'package:my_grocery/service/popular_category_service.dart';
+import 'package:my_grocery/service/popular_product.dart';
 
 class HomeController extends GetxController {
   static HomeController instance = Get.find();

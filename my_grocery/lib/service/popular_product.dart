@@ -20,6 +20,7 @@ class RemotePopularProduct {
   }
 }
 
+// Class created to do the local storage for the objects
 class LocalProductService {
   late Box<Product> _popularProductBox;
 
