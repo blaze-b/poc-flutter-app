@@ -2,6 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:my_grocery/const.dart';
 import 'package:my_grocery/model/product.dart';
+import 'package:my_grocery/web/view/product_details/product_details_screen.dart';
 import 'package:shimmer/shimmer.dart';
 
 class ProductCard extends StatelessWidget {
@@ -16,13 +17,21 @@ class ProductCard extends StatelessWidget {
     print('Product image URL: $productImageUrl');
     print('Product name: $productName');
     print('Product tags: $tags');
-    return Material(
-      elevation: 8,
-      shadowColor: Colors.grey.shade300,
-      color: Colors.white,
-      borderRadius: BorderRadius.circular(10),
-      child: Padding(
-        padding: const EdgeInsets.all(12),
+    return InkWell(
+      onTap: () {
+        FocusScope.of(context).requestFocus(FocusNode());
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (context) => ProductDetailsScreen(
+                      product: product,
+                    )));
+      },
+      child: Material(
+        elevation: 8,
+        shadowColor: Colors.grey.shade300,
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(10),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [

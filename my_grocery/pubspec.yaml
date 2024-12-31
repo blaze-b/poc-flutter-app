@@ -41,11 +41,12 @@ dependencies:
   shimmer: ^3.0.0
   cached_network_image: ^3.4.1
   carousel_slider: ^5.0.0
+  intl: ^0.20.1
 
   # Local db
   hive: ^2.2.3
   hive_flutter: ^1.1.0
-
+ 
 dev_dependencies:
   flutter_test:
     sdk: flutter

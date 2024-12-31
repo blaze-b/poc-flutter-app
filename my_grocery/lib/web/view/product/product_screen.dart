@@ -26,7 +26,7 @@ class ProductScreen extends StatelessWidget {
               return const ProductLoadingGrid();
             }
           }),
-        )
+        ),
       ],
     ));
   }
