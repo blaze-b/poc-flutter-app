@@ -139,11 +139,47 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                         )
                       ],
                     ),
-                  )
+                  ),
                 ],
               ),
             ),
+            const SizedBox(height: 20),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 10),
+              child: Text(
+                'About this product:',
+                style: TextStyle(
+                    fontSize: 16,
+                    color: Theme.of(context).primaryColor,
+                    fontWeight: FontWeight.w500),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 10),
+              child: Text(
+                widget.product.description,
+                style: TextStyle(fontSize: 16, color: Colors.grey.shade700),
+              ),
+            )
           ],
+        ),
+      ),
+      bottomNavigationBar: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: TextButton(
+          style: ButtonStyle(
+            foregroundColor: MaterialStateProperty.all<Color>(Colors.white),
+            backgroundColor: MaterialStateProperty.all<Color>(
+                Theme.of(context).primaryColor),
+          ),
+          onPressed: () {},
+          child: const Padding(
+            padding: EdgeInsets.all(6.0),
+            child: Text(
+              'Add to Card',
+              style: TextStyle(fontSize: 16),
+            ),
+          ),
         ),
       ),
     );
