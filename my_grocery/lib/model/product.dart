@@ -10,6 +10,10 @@ List<Product> popularProductListFromJson(String val) => List<Product>.from(
           .map((val) => Product.popularProductFromJson(val)),
     );
 
+List<Product> productListFromJson(String val) => List<Product>.from(
+      json.decode(val)['data'].map((val) => Product.productFromJson(val)),
+    );
+
 @HiveType(typeId: 3)
 class Product {
   @HiveField(0)
@@ -38,5 +42,13 @@ class Product {
         images: List<String>.from(
             data['product']['images'].map((image) => image['url'])),
         tags: [],
+      );
+
+  factory Product.productFromJson(Map<String, dynamic> data) => Product(
+        id: data['id'],
+        name: data['name'],
+        description: data['description'],
+        images: List<String>.from(data['images'].map((image) => image['url'])),
+        tags: List<Tag>.from(data['tags'].map((val) => Tag.fromJson(val))),
       );
 }

@@ -1,6 +1,7 @@
 import 'package:get/get.dart';
 import 'package:my_grocery/web/controller/dashboard_controller.dart';
 import 'package:my_grocery/web/controller/home_controller.dart';
+import 'package:my_grocery/web/controller/product_controller.dart';
 
 class DashboardBinding extends Bindings {
   @override
@@ -8,5 +9,6 @@ class DashboardBinding extends Bindings {
     // implement dependencies
     Get.put(DashboardController());
     Get.put(HomeController());
+    Get.put(ProductController());
   }
 }

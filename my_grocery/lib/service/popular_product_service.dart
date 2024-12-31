@@ -3,7 +3,7 @@ import 'package:http/http.dart' as http;
 import 'package:my_grocery/const.dart';
 import 'package:my_grocery/model/product.dart';
 
-class RemotePopularProduct {
+class RemotePopularProductService {
   var client = http.Client();
   var remoteUrl = '$baseUrl/api/popular-products';
 
@@ -21,7 +21,7 @@ class RemotePopularProduct {
 }
 
 // Class created to do the local storage for the objects
-class LocalProductService {
+class LocalPopularProductService {
   late Box<Product> _popularProductBox;
 
   Future<void> init() async {

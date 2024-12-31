@@ -4,7 +4,7 @@ import 'package:my_grocery/model/category.dart';
 import 'package:my_grocery/model/product.dart';
 import 'package:my_grocery/service/ad_banner_service.dart';
 import 'package:my_grocery/service/popular_category_service.dart';
-import 'package:my_grocery/service/popular_product.dart';
+import 'package:my_grocery/service/popular_product_service.dart';
 
 class HomeController extends GetxController {
   static HomeController instance = Get.find();
@@ -21,14 +21,15 @@ class HomeController extends GetxController {
   // Hive db storage
   final LocalAdBannerService _localAdBannerService = LocalAdBannerService();
   final LocalCategoryService _localCategoryService = LocalCategoryService();
-  final LocalProductService _localProductService = LocalProductService();
+  final LocalPopularProductService _localPopularProductService =
+      LocalPopularProductService();
 
   @override
   void onInit() async {
     // Init the hive
     await _localAdBannerService.init();
     await _localCategoryService.init();
-    await _localProductService.init();
+    await _localPopularProductService.init();
 
     // Init all the methods
     getAdBanners();
@@ -91,17 +92,18 @@ class HomeController extends GetxController {
       isPopularProductLoading(true);
 
       // assigning the local popular products before call
-      if (_localProductService.getPopularProducts().isNotEmpty) {
-        popularProductList.assignAll(_localProductService.getPopularProducts());
+      if (_localPopularProductService.getPopularProducts().isNotEmpty) {
+        popularProductList
+            .assignAll(_localPopularProductService.getPopularProducts());
       }
 
-      var result = await RemotePopularProduct().get();
+      var result = await RemotePopularProductService().get();
       if (result != null) {
         // assign api result
         popularProductList.addAll(popularProductListFromJson(result.body));
 
         // save api result to local db
-        _localProductService.assignAllPopularProducts(
+        _localPopularProductService.assignAllPopularProducts(
             popularProducts: popularProductListFromJson(result.body));
       }
     } finally {
