@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_snake_navigationbar/flutter_snake_navigationbar.dart';
 import 'package:get/get.dart';
 import 'package:my_grocery/web/controller/dashboard_controller.dart';
+import 'package:my_grocery/web/view/category/category_screen.dart';
 import 'package:my_grocery/web/view/home/home_screen.dart';
 import 'package:my_grocery/web/view/product/product_screen.dart';
 
@@ -19,9 +20,7 @@ class DashboardScreen extends StatelessWidget {
             children: [
               const HomeScreen(),
               const ProductScreen(),
-              Container(
-                color: Colors.blue,
-              ),
+              const CategoryScreen(),
               Container(
                 color: Colors.amber,
               ),
