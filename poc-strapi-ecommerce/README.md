@@ -50,6 +50,7 @@ Strapi gives you many possible deployment options for your project including [St
 ## 📚 Learn more
 
 - [Resource center](https://strapi.io/resource-center) - Strapi resource center.
+- [Rest docs](https://docs.strapi.io/dev-docs/api/rest) - Strapi rest documents.
 - [Strapi documentation](https://docs.strapi.io) - Official Strapi documentation.
 - [Strapi tutorials](https://strapi.io/tutorials) - List of tutorials made by the core team and the community.
 - [Strapi blog](https://strapi.io/blog) - Official Strapi blog containing articles made by the Strapi team and the community.

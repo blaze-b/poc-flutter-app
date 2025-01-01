@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:my_grocery/const.dart';
 import 'package:my_grocery/model/product.dart';
 import 'package:intl/intl.dart';
-import 'package:my_grocery/web/view/product_details/product_carousel_slider.dart';
+import 'package:my_grocery/web/view/product_details/components/product_carousel_slider.dart';
 
 class ProductDetailsScreen extends StatefulWidget {
   final Product product;

@@ -16,7 +16,7 @@ class RemotePopularCategoryService {
           '$remoteUrl?populate=category.image&pagination[start]=0&pagination[limit]=5'),
       headers: headers,
     );
-    print('Log reponse: $remoteUrl');
+    print('Log reponse: $response');
     return response;
   }
 }

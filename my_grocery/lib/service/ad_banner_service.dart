@@ -15,7 +15,7 @@ class RemoteAdBannerService {
       Uri.parse('$remoteUrl?populate=image'),
       headers: headers,
     );
-    print('Log reponse: $remoteUrl');
+    print('Log reponse: $response');
     return response;
   }
 }

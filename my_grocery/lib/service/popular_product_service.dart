@@ -15,7 +15,8 @@ class RemotePopularProductService {
       Uri.parse('$remoteUrl?populate=product.images'),
       headers: headers,
     );
-    print('Log reponse: $remoteUrl');
+
+    print('Log reponse: $response');
     return response;
   }
 }

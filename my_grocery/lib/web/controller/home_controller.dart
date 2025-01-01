@@ -9,6 +9,12 @@ import 'package:my_grocery/service/popular_product_service.dart';
 class HomeController extends GetxController {
   static HomeController instance = Get.find();
 
+  // Hive db storage
+  final LocalAdBannerService _localAdBannerService = LocalAdBannerService();
+  final LocalCategoryService _localCategoryService = LocalCategoryService();
+  final LocalPopularProductService _localPopularProductService =
+      LocalPopularProductService();
+
   RxList<AdBanner> bannerList = List<AdBanner>.empty(growable: true).obs;
   RxList<Category> popularCategoryList =
       List<Category>.empty(growable: true).obs;
@@ -17,12 +23,6 @@ class HomeController extends GetxController {
   RxBool isBannerLoading = false.obs;
   RxBool isPopularCategoryLoading = false.obs;
   RxBool isPopularProductLoading = false.obs;
-
-  // Hive db storage
-  final LocalAdBannerService _localAdBannerService = LocalAdBannerService();
-  final LocalCategoryService _localCategoryService = LocalCategoryService();
-  final LocalPopularProductService _localPopularProductService =
-      LocalPopularProductService();
 
   @override
   void onInit() async {
