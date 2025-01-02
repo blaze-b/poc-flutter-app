@@ -22,7 +22,7 @@ class RemotePopularCategoryService {
 }
 
 // Class created to do the local storage for the objects
-class LocalCategoryService {
+class LocalPopularCategoryService {
   late Box<Category> _popularCategoryBox;
 
   Future<void> init() async {

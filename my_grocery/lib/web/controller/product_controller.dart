@@ -6,7 +6,8 @@ import 'package:my_grocery/service/product_service.dart';
 class ProductController extends GetxController {
   static ProductController instance = Get.find();
 
-  TextEditingController searchTextEditingController = TextEditingController();
+  final TextEditingController searchTextEditingController =
+      TextEditingController();
 
   // Default memory storage
   RxList<Product> productList = List<Product>.empty(growable: true).obs;

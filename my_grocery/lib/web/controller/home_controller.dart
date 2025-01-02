@@ -11,7 +11,8 @@ class HomeController extends GetxController {
 
   // Hive db storage
   final LocalAdBannerService _localAdBannerService = LocalAdBannerService();
-  final LocalCategoryService _localCategoryService = LocalCategoryService();
+  final LocalPopularCategoryService _localCategoryService =
+      LocalPopularCategoryService();
   final LocalPopularProductService _localPopularProductService =
       LocalPopularProductService();
 

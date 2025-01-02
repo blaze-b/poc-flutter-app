@@ -2,6 +2,7 @@ import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:my_grocery/web/controller/controllers.dart';
 import 'package:my_grocery/web/view/category/components/category_card.dart';
+import 'package:my_grocery/web/view/category/components/category_loading_card.dart';
 
 class CategoryScreen extends StatelessWidget {
   const CategoryScreen({super.key});
@@ -17,7 +18,7 @@ class CategoryScreen extends StatelessWidget {
               CategoryCard(category: categoryController.categoryList[index]),
         );
       } else {
-        return Container();
+        return const CategoryLoadingCard();
       }
     });
   }
