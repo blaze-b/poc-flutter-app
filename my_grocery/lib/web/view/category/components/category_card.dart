@@ -57,13 +57,13 @@ class _CategoryCardState extends State<CategoryCard> {
                     ),
                     InkWell(
                       onTap: () {
-                        // dashboardController.updateIndex(1);
-                        // productController.searchTextEditingController.text =
-                        //     'cat: ${widget.category.name}';
-                        // productController.searchVal.value =
-                        //     'cat: ${widget.category.name}';
-                        // productController.getProductByCategory(
-                        //     id: widget.category.id);
+                        dashboardController.updateIndex(1);
+                        productController.searchTextEditingController.text =
+                            'cat: ${widget.category.name}';
+                        productController.searchVal.value =
+                            'cat: ${widget.category.name}';
+                        productController.getProductByCategory(
+                            id: widget.category.id);
                       },
                       child: Container(
                         decoration: BoxDecoration(
