@@ -2,6 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:my_grocery/const.dart';
 import 'package:my_grocery/model/category.dart';
+import 'package:my_grocery/web/controller/controllers.dart';
 import 'package:shimmer/shimmer.dart';
 
 class CategoryCard extends StatefulWidget {
@@ -56,13 +57,13 @@ class _CategoryCardState extends State<CategoryCard> {
                     ),
                     InkWell(
                       onTap: () {
-                        // dashboardController.updateIndex(1);
-                        // productController.searchTextEditingController.text =
-                        //     'cat: ${widget.category.name}';
-                        // productController.searchVal.value =
-                        //     'cat: ${widget.category.name}';
-                        // productController.getProductByCategory(
-                        //     id: widget.category.id);
+                        dashboardController.updateIndex(1);
+                        productController.searchTextEditingController.text =
+                            'cat: ${widget.category.name}';
+                        productController.searchVal.value =
+                            'cat: ${widget.category.name}';
+                        productController.getProductByCategory(
+                            id: widget.category.id);
                       },
                       child: Container(
                         decoration: BoxDecoration(

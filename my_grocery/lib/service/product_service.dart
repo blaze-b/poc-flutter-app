@@ -36,4 +36,21 @@ class RemoteProductService {
 
     return response;
   }
+
+  Future<dynamic> getByCategory({required int id}) async {
+    var headers = {
+      'Authorization': 'Bearer $apiKey',
+    };
+
+    var response = await client.get(
+      Uri.parse(
+          '$remoteUrl?populate[0]=tags&populate[1]=images&populate[2]=category&filters[category][id]=$id'),
+      headers: headers,
+    );
+
+    print('Remote url: $remoteUrl');
+    print('Log reponse for product search by category id: $response');
+
+    return response;
+  }
 }
