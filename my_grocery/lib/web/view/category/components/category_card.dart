@@ -2,7 +2,6 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:my_grocery/const.dart';
 import 'package:my_grocery/model/category.dart';
-import 'package:my_grocery/web/controller/controllers.dart';
 import 'package:shimmer/shimmer.dart';
 
 class CategoryCard extends StatefulWidget {
