@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:my_grocery/web/view/account/components/sign_up.dart';
+import 'package:my_grocery/web/view/account/components/sign_in.dart';
 import 'package:my_grocery/web/view/components/input_outline_button.dart';
 import 'package:my_grocery/web/view/components/input_text_button.dart';
 import 'package:my_grocery/web/view/components/input_text_field.dart';
 
-class SignIn extends StatelessWidget {
-  const SignIn({super.key});
+class SignUp extends StatelessWidget {
+  const SignUp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +16,7 @@ class SignIn extends StatelessWidget {
           child: Column(
             children: [
               Text(
-                "Welcome,",
+                "Create Account,",
                 style: TextStyle(
                   color: Colors.black,
                   fontSize: 32,
@@ -24,7 +24,7 @@ class SignIn extends StatelessWidget {
                 ),
               ),
               Text(
-                "Sign in to continue!",
+                "Sign up to start!",
                 style: TextStyle(
                   color: Colors.grey,
                   fontSize: 22,
@@ -36,6 +36,10 @@ class SignIn extends StatelessWidget {
                 flex: 3,
               ),
               InputTextField(
+                title: 'Full Name',
+              ),
+              const SizedBox(height: 10),
+              InputTextField(
                 title: 'Email',
               ),
               const SizedBox(height: 10),
@@ -43,21 +47,13 @@ class SignIn extends StatelessWidget {
                 title: 'Password',
               ),
               const SizedBox(height: 10),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  InkWell(
-                    onTap: () {},
-                    child: const Text(
-                      "Forgot Password",
-                      style: TextStyle(fontSize: 12),
-                    ),
-                  )
-                ],
+              InputTextField(
+                title: 'Confirm Password',
               ),
+              const SizedBox(height: 10),
               const Spacer(),
               InputTextButton(
-                title: "Sign In",
+                title: "Sign Up",
                 onClick: () {},
               ),
               const SizedBox(height: 10),
@@ -73,16 +69,16 @@ class SignIn extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const Text("I'm new user, "),
+                  const Text("I'm already a member, "),
                   InkWell(
                     onTap: () {
                       Navigator.pushReplacement(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => const SignUp()));
+                              builder: (context) => const SignIn()));
                     },
                     child: const Text(
-                      "Sign Up",
+                      "Sign In",
                       style: TextStyle(color: Colors.blue),
                     ),
                   )
