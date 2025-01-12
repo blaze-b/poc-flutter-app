@@ -8,12 +8,8 @@ class RemotePopularProductService {
   var remoteUrl = '$baseUrl/api/popular-products';
 
   Future<dynamic> get() async {
-    var headers = {
-      'Authorization': 'Bearer $apiKey',
-    };
     var response = await client.get(
       Uri.parse('$remoteUrl?populate=product.images'),
-      headers: headers,
     );
 
     print('Log reponse: $response');

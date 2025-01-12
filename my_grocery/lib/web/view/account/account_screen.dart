@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:my_grocery/web/view/account/components/sign_in.dart';
 
 class AccountScreen extends StatelessWidget {

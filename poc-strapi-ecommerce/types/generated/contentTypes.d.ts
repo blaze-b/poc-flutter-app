@@ -589,6 +589,41 @@ export interface ApiProductProduct extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiProfileProfile extends Struct.CollectionTypeSchema {
+  collectionName: 'profiles';
+  info: {
+    displayName: 'Profile';
+    pluralName: 'profiles';
+    singularName: 'profile';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    age: Schema.Attribute.Date;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    email: Schema.Attribute.String & Schema.Attribute.Required;
+    fullName: Schema.Attribute.String;
+    image: Schema.Attribute.Media<'images' | 'files', true>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::profile.profile'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    user: Schema.Attribute.Relation<
+      'oneToOne',
+      'plugin::users-permissions.user'
+    >;
+  };
+}
+
 export interface ApiTagTag extends Struct.CollectionTypeSchema {
   collectionName: 'tags';
   info: {
@@ -1096,6 +1131,7 @@ export interface PluginUsersPermissionsUser
       Schema.Attribute.SetMinMaxLength<{
         minLength: 6;
       }>;
+    profile: Schema.Attribute.Relation<'oneToOne', 'api::profile.profile'>;
     provider: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
     resetPasswordToken: Schema.Attribute.String & Schema.Attribute.Private;
@@ -1132,6 +1168,7 @@ declare module '@strapi/strapi' {
       'api::popular-category.popular-category': ApiPopularCategoryPopularCategory;
       'api::popular-product.popular-product': ApiPopularProductPopularProduct;
       'api::product.product': ApiProductProduct;
+      'api::profile.profile': ApiProfileProfile;
       'api::tag.tag': ApiTagTag;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
