@@ -1,4 +1,4 @@
-String baseUrl = 'http://localhost:1337';
+String baseUrl = 'http://localhost:1338';
 String apiKey =
     'b5ab5c1f11c4eb94b7a2a619d579239349aed690a1c479c82596fc947527b9f7594c6f51338037b0eac9b789cf1543bcfe5f5d7c549a96d32562d54503b2bc00c97352dfe452f9a348f3a68fb3564da13b3adc66b3fb0a95df27c755b96771b783f324e9adb0982ae1d903fad6a6a5e5cf91d0e336c39371ff04910efc16f39a';
 String currency = '\$';
