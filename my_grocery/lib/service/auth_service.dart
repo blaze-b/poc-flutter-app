@@ -25,7 +25,10 @@ class RemoteAuthService {
     required String email,
     required String password,
   }) async {
-    var body = {"identifier": email, "password": password};
+    var body = {
+      "identifier": email,
+      "password": password,
+    };
     var response = await client.post(
       Uri.parse('$baseUrl/api/auth/local'),
       headers: {"Content-Type": "application/json"},

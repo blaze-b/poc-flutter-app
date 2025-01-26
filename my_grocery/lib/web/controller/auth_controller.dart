@@ -53,6 +53,7 @@ class AuthController extends GetxController {
           EasyLoading.showError('Something wrong. Try again!');
         }
       } else {
+        // Something went wrong popup
         EasyLoading.showError('Something wrong. Try again!');
       }
     } catch (e) {
