@@ -58,7 +58,9 @@ class MainHeader extends StatelessWidget {
                           )
                         : null,
                     contentPadding: const EdgeInsets.symmetric(
-                        horizontal: 14, vertical: 16),
+                      horizontal: 14,
+                      vertical: 16,
+                    ),
                     fillColor: Colors.white,
                     filled: true,
                     hintText: "Search...",

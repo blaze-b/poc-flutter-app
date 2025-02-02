@@ -1,4 +1,4 @@
-import 'package:flutter/widgets.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:my_grocery/model/product.dart';
 import 'package:my_grocery/service/product_service.dart';
